@@ -38,7 +38,6 @@ int main() {
 	}
 
 	while(1){
-		//if(_client.circleDetected){
 		res =_client.is_new_circle();
 		if(_client.circleDetected){
 

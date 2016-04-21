@@ -67,11 +67,6 @@ void my_message_callback(struct mosquitto *mosq, void *userdata, const struct mo
 		if( strcmp( message->topic, tools::CHANNEL_CIRCLE ) == 0 ){
 			printf("cercle detecte!!!!\n");
 			tools::mIsNewCircle = true;
-			/*if(strcmp((const char*)(message->payload),"1")==0){
-				tools::mIsNewCircle = true;
-			}*/
-			//Client::circleDetected = true;
-
 		}
 
 	}else{
@@ -87,7 +82,6 @@ void my_connect_callback(struct mosquitto *mosq, void *userdata, int result)
 	if(!result){
 		/* Subscribe to broker information topics on successful connect. */
 		mosquitto_subscribe(mosq, NULL, "/tmp/#", 2);
-		//send_message(mosq,"envoie depuis le client");//ok
 		//Subscribe to type_circle information.
 		mosquitto_subscribe(mosq, NULL, tools::CHANNEL_CIRCLE, 2);
 		mosquitto_subscribe(mosq, NULL, tools::CHANNEL_SWIPE, 2);
